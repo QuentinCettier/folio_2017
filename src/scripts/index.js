@@ -1,7 +1,5 @@
-import '../scss/styles.scss';
-import Main from './Main';
+import {TweenMax, Power2, TimelineLite} from 'gsap'
+import '../scss/styles.scss'
+import {Particle, draw} from './Particle'
 
-let inst = new Main();
-let node = document.querySelector('#print-msg');
-
-node.innerHTML = inst.genMsg();
+draw()
