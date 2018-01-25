@@ -11,7 +11,7 @@ export default class Particle
         //and speed and reset then whith there initial value
         //A particle have :
         //a Radius, a Speed, x and y coords, a color, an opacity and a direction
-        this.speedOrigin = Math.floor(Math.random()*12) /15
+        this.speedOrigin = Math.floor(Math.random()*12) /10
         this.originRadius = Math.random()*2
         this.radius = this.originRadius
         this.posx = Math.floor((Math.random() * $canvas.width) + this.radius)
@@ -19,7 +19,8 @@ export default class Particle
         this.color = '#fefefe'
         this.speed = this.speedOrigin
         this.opacity = 1
-        this.direction = Math.random()
+        this.amplitude = Math.random()
+    
     }
     //Draw the particle
     //Move the particles from top to bottom and reset y position and speed if needed
@@ -29,8 +30,6 @@ export default class Particle
         context.globalCompositeOperation = 'source-over'
         context.fillStyle = this.color
         context.globalAlpha = this.opacity
-        context.shadowBlur = 1;
-        context.shadowColor = "#fefefe";
         context.arc(this.posx, this.posy, this.radius, 0, Math.PI*2, false)
         context.fill()
         context.closePath()
@@ -56,7 +55,7 @@ export class FlyingParticle
     constructor()
     {
         this.radius = 1.5
-        this.color = '#ED1C24'
+        this.color = '#fefefe'
         this.speed = Math.floor(Math.random()*15)
         this.posx = Math.floor((Math.random() * $canvas.width) + this.radius)
         this.posy = 0
@@ -105,7 +104,6 @@ export function draw()
         {
             const particle = new Particle()
             particleArray.push(particle)
-            
         }
         for(let i = 0; i<flyingParticleCount; i++)
         {
@@ -124,10 +122,10 @@ export function draw()
         {
            particleArray[i].move()
         }
-        for (let i = 0; i < flyingParticleCount-1; i++)
-        {
-            flyingParticleArray[i].move()
-        }
+        // for (let i = 0; i < flyingParticleCount-1; i++)
+        // {
+        //     flyingParticleArray[i].move()
+        // }
         
         requestAnimationFrame(animate)
     }
@@ -146,31 +144,31 @@ export function draw()
        {
            for(const particle of particleArray)
            {
-               particle.posx += particle.speed/10
-               particle.posy += particle.speed/10
+               particle.posx += particle.speed/15
+               particle.posy += particle.speed/15
            }
        }
        else if(coords.x < oldcoords.x && coords.y > oldcoords.y)
        {
            for(const particle of particleArray)
            {
-               particle.posx += particle.speed/10
-               particle.posy -= particle.speed/10
+               particle.posx += particle.speed/15
+               particle.posy -= particle.speed/15
            }
        }
        else if(coords.x > oldcoords.x && coords.y > oldcoords.y)
        {
            for(const particle of particleArray)
            {
-               particle.posx -= particle.speed/10
-               particle.posy -= particle.speed/10
+               particle.posx -= particle.speed/15
+               particle.posy -= particle.speed/15
            }
        }else
        {
            for(const particle of particleArray)
            {
-               particle.posx -= particle.speed/10
-               particle.posy += particle.speed/10
+               particle.posx -= particle.speed/15
+               particle.posy += particle.speed/15
            }
        }
     })

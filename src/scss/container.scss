@@ -1,3 +1,7 @@
+html
+{
+    user-select: none;    
+}
 .home-container
 {
     position: absolute;
@@ -16,24 +20,144 @@
     top: 37%;
     left: 50%;
     font-family: 'Catamaran', serif;
-    &>h1
+    display: flex;
+    flex-direction: column;
+    &:hover
     {
-        text-align: right;
-        color: white;
-        font-size: 50px;
+        cursor: default;
     }
-    &>h2
+
+}
+.description__name__container
+{
+    overflow: hidden;
+    .description__name
     {
+        position: relative;
         text-align: right;
-        color: white;
+        color: $white;
+        font-size: 50px;
+        transition-duration: .3s;    
+        &::before
+        {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left:100%;
+            width: 7%;
+            height: 8%;
+            background: $white;
+            transition-duration: .3s;
+        }
+        &:hover::before
+        {
+            transform: translateX(-6%)
+        }
+        &:hover
+        {
+            transform: translateX(-6%)
+        }
+    }
+}
+.description__role__container
+{
+    overflow: hidden;
+    .description__role
+    {
+        position: relative;
+        text-align: right;
+        color: $white;
         font-size: 30px;
         font-weight: 300;
+        transition-duration: .3s;            
+        &::before
+        {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left:100%;
+            width: 7%;
+            height: 8%;
+            background: $white;
+            transition-duration: .3s;
+        }
+        &:hover::before
+        {
+            transform: translateX(-5%)
+        }
+        &:hover
+        {
+            transform: translateX(-5%)
+        }
     }
+}
+.description__study__container,
+.description__description__container
+{
+    overflow: hidden;
     &>p
     {
         text-align: right;
-        color: white;
+        color: $white;
         font-size: 20px;
         font-weight: 100;
+        position: relative;           
     }
+}
+.click-hold-button-container
+{
+    position: absolute;
+    top: 75%;
+    left: 43%;
+    width: 13%;
+    height: 6%;
+    overflow: hidden;
+    //border: 1px solid white;
+    will-change: transform;
+    &::before
+    {
+        content: " ";
+        position: absolute;
+        top:0%;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: $white;
+        transition-duration: 1s;
+    }
+    &::after
+    {
+        content: " ";
+        position: absolute;
+        bottom:0%;
+        left:100%;
+        width: 100%;
+        height: 2px;
+        background: $white;
+        transition-duration: 1s;
+        
+    }
+    &:hover::before
+    {
+        transform : translate(200%);
+    }
+    &:hover::after
+    {
+        transform : translate(-200%);
+    }
+    &:hover
+    {
+        cursor: pointer;
+    }
+}
+
+
+.click-hold-button-container__button
+{
+    //border: 1px solid white;
+    font-family: 'Catamaran', serif;
+    text-align: center;
+    color: $white;
+    font-size: 25px;
+    font-weight: 100;
 }
