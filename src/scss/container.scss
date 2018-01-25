@@ -11,6 +11,7 @@ html
     left: 50%;
     transform: translate(-50%, -50%);
     will-change: transfom;
+    opacity: 0;
 }
 .home-container__description
 {
@@ -28,6 +29,7 @@ html
     }
 
 }
+
 .description__name__container
 {
     overflow: hidden;

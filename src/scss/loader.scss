@@ -1,0 +1,45 @@
+.loader-container
+{
+    position: absolute;
+    top:50%;
+    left:50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+
+}
+.loader-container__loader
+{
+    position: absolute;
+    text-align: center;
+    font-size: 300px;
+    letter-spacing: 0.1em;
+    width: 100vw;
+    top : 50%;
+    left: 50%;
+    transform : translate(-50%, -50%);
+    font-family: 'Catamaran', serif;
+    color : $white;
+}
+.layers .layer-1
+{
+    width: 100vw;
+    height: 100vh;
+    background: $white;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-150%, -50%);
+    transform-origin: top left;
+}
+.layers .layer-2
+{
+    width: 100vw;
+    height: 100vh;
+    background: $white;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-150%, -50%);
+    transform-origin: top left;
+}
