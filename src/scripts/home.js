@@ -9,11 +9,6 @@ export function main()
     const $study = $homeDescription.querySelector('.home-container__description__study')
     const $desription = $homeDescription.querySelector('.home-container__description__description')
     
-    
-    
-    
-    
-    
     $clickHoldButton.addEventListener('mousedown', () =>
     {
         console.log('oucu')

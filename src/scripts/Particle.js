@@ -122,10 +122,10 @@ export function draw()
         {
            particleArray[i].move()
         }
-        // for (let i = 0; i < flyingParticleCount-1; i++)
-        // {
-        //     flyingParticleArray[i].move()
-        // }
+        for (let i = 0; i < flyingParticleCount-1; i++)
+        {
+            flyingParticleArray[i].move()
+        }
         
         requestAnimationFrame(animate)
     }

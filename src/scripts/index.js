@@ -25,20 +25,17 @@ const onComplete = (event) =>
 const onProgress = (event) =>
 {
     var progress = Math.round(event.loaded * 100);
-    
-    console.log('General progress', Math.round(event.loaded) * 100, event);
     $loaderText.innerHTML = `${progress}%`
 }
+
+
 queue.on('complete', onComplete)
 // queue.on("fileprogress", fileProgress)
 // queue.on('fileload', fileLoad)
 queue.on('progress', onProgress)
 queue.loadManifest(
     [
-        'canvas.js',
-        'home.js',
-        'Particles.js',
-        'styles.scss',
+        'dist/bundle.js'
     ]
 )
 
