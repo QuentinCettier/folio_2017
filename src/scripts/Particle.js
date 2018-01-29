@@ -1,4 +1,4 @@
-import findGreet from './findGreet'
+
 //Create & export the Particle Classconst 
 const $canvas = document.querySelector('.canvas')    
 const context = $canvas.getContext('2d')
@@ -50,45 +50,45 @@ export default class Particle
         }
     }
 }
-export class FlyingParticle
-{
-    constructor()
-    {
-        this.radius = 1.5
-        this.color = '#fefefe'
-        this.speed = Math.floor(Math.random()*15)
-        this.posx = Math.floor((Math.random() * $canvas.width) + this.radius)
-        this.posy = 0
-    }
-    move()
-    {
-        context.beginPath()
-        context.globalCompositeOperation = 'source-over'
-        context.fillStyle = this.color
-        context.shadowBlur = 1
-        context.shadowColor = this.color
-        context.arc(this.posx, this.posy, this.radius, 0, Math.PI*2, false)
-        context.fill()
-        context.closePath()
+// export class FlyingParticle
+// {
+//     constructor()
+//     {
+//         this.radius = 1.5
+//         this.color = '#fefefe'
+//         this.speed = Math.floor(Math.random()*15)
+//         this.posx = Math.floor((Math.random() * $canvas.width) + this.radius)
+//         this.posy = 0
+//     }
+//     move()
+//     {
+//         context.beginPath()
+//         context.globalCompositeOperation = 'source-over'
+//         context.fillStyle = this.color
+//         context.shadowBlur = 1
+//         context.shadowColor = this.color
+//         context.arc(this.posx, this.posy, this.radius, 0, Math.PI*2, false)
+//         context.fill()
+//         context.closePath()
 
-        this.posy += this.speed/5
-        this.posx -= this.speed/5
-        if(this.speed == 0)
-        {
-            this.speed = Math.floor(Math.random()*12)/10
-        }
-        if(this.posy > $canvas.height || this.posx > $canvas.width)
-        {
-            this.posy = 0
-            this.posx =  Math.floor((Math.random() * $canvas.width) + this.radius)
-        }
-        if(this.posy < 0 || this.posx < 0)
-        {            
-            this.posy = 0
-            this.posx = Math.floor((Math.random() * $canvas.width) + this.radius)
-        }
-    }
-}
+//         this.posy += this.speed/5
+//         this.posx -= this.speed/5
+//         if(this.speed == 0)
+//         {
+//             this.speed = Math.floor(Math.random()*12)/10
+//         }
+//         if(this.posy > $canvas.height || this.posx > $canvas.width)
+//         {
+//             this.posy = 0
+//             this.posx =  Math.floor((Math.random() * $canvas.width) + this.radius)
+//         }
+//         if(this.posy < 0 || this.posx < 0)
+//         {            
+//             this.posy = 0
+//             this.posx = Math.floor((Math.random() * $canvas.width) + this.radius)
+//         }
+//     }
+// }
 export function draw()
 {
     let particleArray = []
@@ -105,11 +105,11 @@ export function draw()
             const particle = new Particle()
             particleArray.push(particle)
         }
-        for(let i = 0; i<flyingParticleCount; i++)
-        {
-            const flyingParticle = new FlyingParticle()
-            flyingParticleArray.push(flyingParticle)
-        } 
+        // for(let i = 0; i<flyingParticleCount; i++)
+        // {
+        //     const flyingParticle = new FlyingParticle()
+        //     flyingParticleArray.push(flyingParticle)
+        // } 
         animate() 
      
     }
@@ -122,10 +122,10 @@ export function draw()
         {
            particleArray[i].move()
         }
-        for (let i = 0; i < flyingParticleCount-1; i++)
-        {
-            flyingParticleArray[i].move()
-        }
+        // for (let i = 0; i < flyingParticleCount-1; i++)
+        // {
+        //     flyingParticleArray[i].move()
+        // }
         
         requestAnimationFrame(animate)
     }

@@ -14,10 +14,11 @@ html, body {
 body {
     position: relative;
     font-size: 12px;
-    background: $mandy;
+    background: $firefly;
 }
 
 .canvas
 {
     opacity: 0;
+    will-change: auto;
 }

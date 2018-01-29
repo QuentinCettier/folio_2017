@@ -6,7 +6,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    will-change: transform;
     font-family: 'Catamaran', serif;
 }
 
@@ -17,48 +16,31 @@
 {
     position: absolute;
     overflow: hidden;
-    &>div
+    height: 6%;
+    width: 4%;
+    vertical-align: center;
+    &>div:nth-child(2)
     {
-        text-align: right;
+        text-align: center;
         color: $white;
         font-size: 20px;
         font-weight: 100;
+        margin-top: 25%;
+        margin-bottom: 25%;
+        opacity: 0;
+        transition-duration: .5s;
         &::before
         {
             content: " ";
             position: absolute;
-            top:0%;
-            left: -100%;
             width: 100%;
-            height: 2px;
-            background: $white;
-            transition-duration: .5s;
+            height: 100%;
+            background: $twine;
+            top:100%;
+            left:0%;
+            transition-duration: .3s;
+            z-index: -1;
         }
-        &::after
-        {
-            content: " ";
-            position: absolute;
-            bottom:0%;
-            left:100%;
-            width: 100%;
-            height: 2px;
-            background: $white;
-            transition-duration: .5s;
-            
-        }
-        &:hover::before
-        {
-            transform : translate(200%);
-        }
-        &:hover::after
-        {
-            transform : translate(-200%);
-        }
-        &:hover
-        {
-            cursor: pointer;
-        }
-        
     }
 }
 .navigation-container__works-container
@@ -75,4 +57,63 @@
 {
     bottom: 5%;
     left: 5%;
+}
+
+.works-container__layer,
+.about-container__layer,
+.lab-container__layer
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0%;
+    left: -100%;
+    background: $twine;
+    z-index: 2;
+}
+
+.navigation-container__works-container,
+{
+    &:hover
+    {
+        cursor: pointer;
+        .works-container__works::before
+        {
+            transform: translateY(-100%);
+        }
+        .works-container__works
+        {
+            color: $firefly;
+        }
+    }
+}
+.navigation-container__about-container,
+{
+    &:hover
+    {
+        cursor: pointer;
+        .about-container__about::before
+        {
+            transform: translateY(-100%);
+        }
+        .about-container__about
+        {
+            color: $firefly;
+        }
+    }
+}
+.navigation-container__lab-container,
+{
+    &:hover
+    {
+        cursor: pointer;
+        .lab-container__lab::before
+        {
+            transform: translateY(-100%);
+        }
+        .lab-container__lab
+        {
+            color: $firefly;
+        }
+    }
 }

@@ -10,7 +10,6 @@ html
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    will-change: transfom;
     opacity: 0;
 }
 .home-container__description
@@ -23,6 +22,7 @@ html
     font-family: 'Catamaran', serif;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     &:hover
     {
         cursor: default;
@@ -32,78 +32,52 @@ html
 
 .description__name__container
 {
+   
     overflow: hidden;
+    will-change: transform;
+
     .description__name
     {
         position: relative;
         text-align: right;
         color: $white;
         font-size: 50px;
-        transition-duration: .3s;    
-        &::before
-        {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left:100%;
-            width: 7%;
-            height: 8%;
-            background: $white;
-            transition-duration: .3s;
-        }
-        &:hover::before
-        {
-            transform: translateX(-6%)
-        }
-        &:hover
-        {
-            transform: translateX(-6%)
-        }
+        font-weight: 700;      
+        transition-duration: .3s;  
+        opacity: 0;  
+        
     }
 }
 .description__role__container
 {
+    padding-top: 5%;
     overflow: hidden;
+    position: relative;
     .description__role
     {
         position: relative;
         text-align: right;
         color: $white;
-        font-size: 30px;
-        font-weight: 300;
-        transition-duration: .3s;            
-        &::before
-        {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left:100%;
-            width: 7%;
-            height: 8%;
-            background: $white;
-            transition-duration: .3s;
-        }
-        &:hover::before
-        {
-            transform: translateX(-5%)
-        }
-        &:hover
-        {
-            transform: translateX(-5%)
-        }
+        font-size: 30px;     
+        transition-duration: .3s; 
+        opacity: 0;
+        
     }
 }
 .description__study__container,
 .description__description__container
 {
     overflow: hidden;
+    padding-top: 5%; 
+    position: relative;
     &>p
     {
         text-align: right;
         color: $white;
         font-size: 20px;
         font-weight: 100;
-        position: relative;           
+        position: relative;   
+        opacity: 0;        
     }
 }
 .click-hold-button-container
@@ -114,8 +88,7 @@ html
     width: 13%;
     height: 6%;
     overflow: hidden;
-    //border: 1px solid white;
-    will-change: transform;
+    
     &::before
     {
         content: " ";
@@ -156,10 +129,26 @@ html
 
 .click-hold-button-container__button
 {
-    //border: 1px solid white;
     font-family: 'Catamaran', serif;
-    text-align: center;
+    width: 100%;
+    height: 100%;
     color: $white;
     font-size: 25px;
     font-weight: 100;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.description__name__layer,
+.description__role__layer,
+.description__study__layer,
+.description__description__layer
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0%;
+    left: -100%;
+    background: $twine;
+    z-index: 2;
 }
