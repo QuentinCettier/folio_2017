@@ -22,12 +22,13 @@
     &>div:nth-child(2)
     {
         text-align: center;
-        color: $white;
+        color: $twine;
         font-size: 20px;
         font-weight: 100;
         margin-top: 25%;
         margin-bottom: 25%;
         opacity: 0;
+        transition-timing-function: ease-in-out;        
         transition-duration: .5s;
         &::before
         {
@@ -38,6 +39,7 @@
             background: $twine;
             top:100%;
             left:0%;
+            transition-timing-function: ease-in-out;
             transition-duration: .3s;
             z-index: -1;
         }
@@ -83,7 +85,7 @@
         }
         .works-container__works
         {
-            color: $firefly;
+            color : $firefly;
         }
     }
 }
@@ -98,7 +100,7 @@
         }
         .about-container__about
         {
-            color: $firefly;
+            color : $firefly;
         }
     }
 }
@@ -113,7 +115,8 @@
         }
         .lab-container__lab
         {
-            color: $firefly;
+            color : $firefly;
         }
+        
     }
 }

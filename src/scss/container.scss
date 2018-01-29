@@ -35,33 +35,79 @@ html
    
     overflow: hidden;
     will-change: transform;
-
+    
+    &::before
+    {
+        content : " ";
+        position: absolute;
+        width: 195px;
+        height: 100%;
+        right: -195px;
+        background: $twine; //janna
+        transition-duration: .3s;
+    }
+    
+    &:hover .span__name
+    {
+        color: $firefly;
+    }
+    &:hover::before
+    {
+        transform: translateX(-195px)
+    }
     .description__name
     {
         position: relative;
         text-align: right;
-        color: $white;
+        color: $twine;
         font-size: 50px;
         font-weight: 700;      
         transition-duration: .3s;  
         opacity: 0;  
         
     }
+    .span__name
+    {
+        transition-duration: .3s;
+    }
+    
 }
 .description__role__container
 {
     padding-top: 5%;
     overflow: hidden;
     position: relative;
+    &::before
+    {
+        content : " ";
+        position: absolute;
+        width: 145px;
+        height: 100%;
+        right: -145px;
+        background: $twine; //janna
+        transition-duration: .3s;
+    }
+    &:hover::before
+    {
+        transform: translateX(-145px)
+    }
     .description__role
     {
         position: relative;
         text-align: right;
-        color: $white;
+        color: $twine;
         font-size: 30px;     
         transition-duration: .3s; 
         opacity: 0;
         
+    }
+    .span__role
+    {
+        transition-duration: .3s;
+    }
+    &:hover .span__role
+    {
+        color: $firefly;
     }
 }
 .description__study__container,
@@ -73,11 +119,37 @@ html
     &>p
     {
         text-align: right;
-        color: $white;
+        color: $twine;
         font-size: 20px;
         font-weight: 100;
         position: relative;   
         opacity: 0;        
+    }
+
+}
+.description__study__container
+{
+    &::before
+    {
+        content : " ";
+        position: absolute;
+        width: 43px;
+        height: 100%;
+        right: -43px;
+        background: $twine; //janna
+        transition-duration: .3s;
+    }
+    &:hover::before
+    {
+        transform: translateX(-43px)
+    }
+    .span__study
+    {
+        transition-duration: .3s;
+    }
+    &:hover .span__study
+    {
+        color: $firefly;
     }
 }
 .click-hold-button-container
@@ -88,56 +160,60 @@ html
     width: 13%;
     height: 6%;
     overflow: hidden;
-    
     &::before
     {
         content: " ";
         position: absolute;
-        top:0%;
-        left: -100%;
         width: 100%;
-        height: 2px;
-        background: $white;
-        transition-duration: 1s;
+        height: 100%;
+        background: $twine;
+        top:100%;
+        left:0%;
+        transition-duration: .3s;
+        transition-timing-function: ease-in-out;
+        z-index: -1;
     }
-    &::after
-    {
-        content: " ";
-        position: absolute;
-        bottom:0%;
-        left:100%;
-        width: 100%;
-        height: 2px;
-        background: $white;
-        transition-duration: 1s;
-        
-    }
-    &:hover::before
-    {
-        transform : translate(200%);
-    }
-    &:hover::after
-    {
-        transform : translate(-200%);
-    }
+}
+.click-hold-button-container
+{
     &:hover
     {
         cursor: pointer;
+        &::before
+        {
+            transform: translateY(-100%);
+        }
+        &>div
+        {
+            color : $firefly;
+        }
     }
 }
-
+.button-container__layer
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0%;
+    left: -100%;
+    background: $twine;
+    z-index: 2;
+}
 
 .click-hold-button-container__button
 {
     font-family: 'Catamaran', serif;
     width: 100%;
     height: 100%;
-    color: $white;
+    color: $twine;
     font-size: 25px;
     font-weight: 100;
     margin-top: 5%;
     margin-bottom: 5%;
+    opacity: 0;
 }
+
+
 
 .description__name__layer,
 .description__role__layer,
@@ -149,6 +225,6 @@ html
     height: 100%;
     top:0%;
     left: -100%;
-    background: $twine;
+    background: $twine; //janna
     z-index: 2;
 }

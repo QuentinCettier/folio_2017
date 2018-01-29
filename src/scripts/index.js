@@ -28,6 +28,11 @@ const $labLayer = document.querySelector('.lab-container__layer')
 const $worksLayerWorks = document.querySelector('.works-container__works')
 const $aboutLayerAbout = document.querySelector('.about-container__about')
 const $labLayerLab = document.querySelector('.lab-container__lab')
+const $clickHoldButtonContainer = document.querySelector('.click-hold-button-container')
+const $buttonLayer = document.querySelector('.button-container__layer')
+const $clickHoldButton = document.querySelector('.click-hold-button-container__button')
+
+
 
 
 let queue = new createjs.LoadQueue()
@@ -64,35 +69,40 @@ const loadHome = () =>
 
     tlLoadHome
         .add('label1')
+
+        .to($buttonLayer,.7, {x:$buttonLayer.offsetWidth, ease: Power1.easeIn}, 'label1')
+        .to($buttonLayer,.5,{x: $buttonLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'-=.2')
+        .to($clickHoldButton, .3, {autoAlpha: 1}, '-=.5')
+
         .to($descriptionNameLayer,.7, {x: $descriptionNameLayer.offsetWidth, ease: Power1.easeIn},'label1')
         .to($descriptionNameLayer,.5,{x: $descriptionNameLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'-=.2')
-        .to($descriptionName, .3, {autoAlpha: 1}, '-=.7')
-        
+        .to($descriptionName, .3, {autoAlpha: 1}, '-=.5')
+
         .to($descriptionRoleLayer,.7, {x: $descriptionRoleLayer.offsetWidth, ease: Power1.easeIn},'label1')
         .to($descriptionRoleLayer,.3,{x: $descriptionRoleLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'-=.2')
-        .to($descriptionRole, .3, {autoAlpha: 1}, '-=.7')
+        .to($descriptionRole, .3, {autoAlpha: 1}, '-=.5')
 
         .to($descriptionStudyLayer,.7, {x: $descriptionStudyLayer.offsetWidth, ease: Power1.easeIn},'label1')
         .to($descriptionStudyLayer,.3,{x: $descriptionStudyLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'-=.2')
-        .to($descriptionStudy, .3, {autoAlpha: 1}, '-=.7')
+        .to($descriptionStudy, .3, {autoAlpha: 1}, '-=.5')
 
         .to($descriptionDescriptionLayer,.7, {x: $descriptionDescriptionLayer.offsetWidth, ease: Power1.easeIn},'label1')
         .to($descriptionDescriptionLayer,.3,{x: $descriptionDescriptionLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'-=.2')
-        .to($descriptionDescription, .3, {autoAlpha: 1}, '-=.7')
+        .to($descriptionDescription, .3, {autoAlpha: 1}, '-=.5')
 
         
         .to($worksLayer,.3, {x: $worksLayer.offsetWidth, ease: Power1.easeIn},'label1')
         .add('label2')
         .to($worksLayer,.5,{x: $worksLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'label2-=.8')
-        .to($worksLayerWorks, .3, {autoAlpha: 1}, '-=.5')
+        .to($worksLayerWorks, .3, {autoAlpha: 1},'label2-=1.2')
 
         .to($aboutLayer,.3, {x: $aboutLayer.offsetWidth, ease: Power1.easeIn},'label1')
         .to($aboutLayer,.5,{x: $aboutLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'label2-=.8')
-        .to($aboutLayerAbout, .3, {autoAlpha: 1}, '-=.5')
+        .to($aboutLayerAbout, .3, {autoAlpha: 1}, 'label2-=1.2')
 
         .to($labLayer,.3, {x: $labLayer.offsetWidth, ease: Power1.easeIn},'label1')
         .to($labLayer,.5,{x: $labLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'label2-=.8')
-        .to($labLayerLab, .3, {autoAlpha: 1}, '-=.5');
+        .to($labLayerLab, .3, {autoAlpha: 1}, 'label2-=1.2');
 
 }
 
