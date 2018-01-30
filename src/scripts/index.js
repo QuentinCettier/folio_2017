@@ -1,7 +1,7 @@
 import createjs from 'preload-js'
 import {TweenMax, Power2, TimelineLite} from 'gsap'
 import '../scss/styles.scss'
-import {Particle, draw} from './Particle'
+import {Pentagon, draw} from './Pentagon'
 import {main} from './home'
 
 const $canvas = document.querySelector('.canvas')
@@ -43,7 +43,7 @@ const onComplete = (event) =>
         tlOut
             .to($loaderText, .3, {autoAlpha:0}, '+=.5')
             .to($layer1, .9, {x : width, ease: Power0.easeIn}, '+=.2')
-            .to($layer2, .9, {x : width, ease: Power0.easeIn},'-=.7') 
+            .to($layer2, .9, {x : width, ease: Power0.easeIn},'-=.7')
             .to($homeContainer, .5, {autoAlpha: 1})
 }
 
@@ -69,7 +69,6 @@ const loadHome = () =>
 
     tlLoadHome
         .add('label1')
-
         .to($buttonLayer,.7, {x:$buttonLayer.offsetWidth, ease: Power1.easeIn}, 'label1')
         .to($buttonLayer,.5,{x: $buttonLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'-=.2')
         .to($clickHoldButton, .3, {autoAlpha: 1}, '-=.5')
@@ -106,5 +105,4 @@ const loadHome = () =>
 
 }
 
-draw()
 main()
