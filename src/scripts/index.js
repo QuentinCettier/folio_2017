@@ -35,9 +35,9 @@ const $worksLayerWorks = document.querySelector('.works-container__works')
 const $nameLayerName = document.querySelector('.name-container__name')
 const $aboutLayerAbout = document.querySelector('.about-container__about')
 const $labLayerLab = document.querySelector('.lab-container__lab')
-const $clickHoldButtonContainer = document.querySelector('.click-hold-button-container')
-const $buttonLayer = document.querySelector('.button-container__layer')
-const $clickHoldButton = document.querySelector('.click-hold-button-container__button')
+// const $clickHoldButtonContainer = document.querySelector('.click-hold-button-container')
+// const $buttonLayer = document.querySelector('.button-container__layer')
+// const $clickHoldButton = document.querySelector('.click-hold-button-container__button')
 const $backgroundTextContainer = document.querySelector('.background__text-container')
 const $backgroundTextContainerText = document.querySelector('.background__text-container__text')
 
@@ -91,9 +91,9 @@ const loadHome = () =>
         .to($homeBackgroundBackgroundBack, .5, {width: backgroundWidth, ease: Power1.easeIn}, 'label1')
         
 
-        .to($buttonLayer,.7, {x:$buttonLayer.offsetWidth, ease: Power1.easeIn}, 'label1')
-        .to($buttonLayer,.5,{x: $buttonLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'-=.2')
-        .to($clickHoldButton, .3, {autoAlpha: 1}, '-=.5')
+        // .to($buttonLayer,.7, {x:$buttonLayer.offsetWidth, ease: Power1.easeIn}, 'label1')
+        // .to($buttonLayer,.5,{x: $buttonLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'-=.2')
+        // .to($clickHoldButton, .3, {autoAlpha: 1}, '-=.5')
 
         .to($descriptionNameLayer,.7, {x: $descriptionNameLayer.offsetWidth, ease: Power1.easeIn},'label1')
         .to($descriptionNameLayer,.5,{x: $descriptionNameLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'-=.2')
@@ -175,29 +175,6 @@ $aboutContainer.addEventListener('mouseleave', ()=>
     
 })
 
-$clickHoldButtonContainer.addEventListener('mouseenter', () =>
-{
-    homeDescriptionOut()
-    $backgroundTextContainerText.innerHTML = "Projects"
-    $backgroundTextContainerText.style.fontSize = "80px"
-    
-})
-$clickHoldButtonContainer.addEventListener('mouseleave', ()=>
-{
-    homeDescriptionIn()
-    
-})
-
-const throttle = (fn, wait) =>
-{
-    let time = Date.now()
-    return function() {
-      if ((time + wait - Date.now()) < 0) {
-        fn()
-        time = Date.now()
-      }
-    }
-  }
 const homeDescriptionOut = () =>
 {
     let tlHomeDescriptionOut = new TimelineLite()
@@ -206,14 +183,29 @@ const homeDescriptionOut = () =>
         .to($descriptionName, .2, {y: 50 ,ease: Power0.easeOut}, 'label')
         .to($descriptionRole, .2, {y: 30, ease: Power0.easeOut}, 'label')
         .to([$descriptionStudy, $descriptionDescription], .3, {y: 20, ease: Power0.easeOut}, 'label')
-        .to($backgroundTextContainerText, .3, {y:-90, autoAlpha: 1, ease: Power0.easeIn});
+        .to($backgroundTextContainerText, .2, {y:-90, autoAlpha: 1, ease: Power0.easeIn});
 }
 const homeDescriptionIn = () =>
 {   
     let tlHomeDescriptionIn = new TimelineLite()
         .add('label3')
-        .to($backgroundTextContainerText, .3, {y:0, ease: Power0.easeOut})
+        .to($backgroundTextContainerText, .2, {y:0, ease: Power0.easeOut})
         .to([$descriptionName, $descriptionRole, $descriptionStudy, $descriptionDescription], .2, {y: 0, ease: Power0.easeIn}, '-=.2');
 
 }
+
+$workContainer.addEventListener('click', () =>
+{
+    console.log('click')
+    let tlHomeFadeOut = new TimelineMax()
+    tlHomeFadeOut
+        
+        .to($backgroundTextContainerText, .3, {y:0, autoAlpha: 0, ease: Power0.easeIn}) 
+        .add('fadeout')       
+        .to($homeContainerDescription, .1, {autoAlpha:0},'fadeout')
+        .to($homeBackgroundBackground, .5, {width: 0, ease: Power1.easeOut},'fadeout')
+        .to($homeBackgroundBackgroundBack, .5, {width: 0, ease: Power1.easeOut}, 'fadeout+=.2')
+        
+        
+})
 main()
