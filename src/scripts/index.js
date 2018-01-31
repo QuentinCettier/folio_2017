@@ -11,6 +11,10 @@ const $layer2 = document.querySelector('.layer-2')
 const width = window.innerWidth
 
 const $homeContainer = document.querySelector('.home-container')
+const $homeContainerDescription = document.querySelector('.home-container__description')
+const $homeBackground = document.querySelector('.home-background')
+const $homeBackgroundBackground = document.querySelector('.home-background__background')
+const $homeBackgroundBackgroundBack = document.querySelector('.home-background__background-back')
 const $descriptionNameLayer= document.querySelector('.description__name__layer')
 const $descriptionName= document.querySelector('.description__name')
 const $descriptionRoleLayer= document.querySelector('.description__role__layer')
@@ -20,20 +24,33 @@ const $descriptionStudy= document.querySelector('.description__study')
 const $descriptionDescriptionLayer= document.querySelector('.description__description__layer')
 const $descriptionDescription= document.querySelector('.description__description')
 const $workContainer = document.querySelector('.navigation-container__works-container')
+const $nameContainer = document.querySelector('.navigation-container__name-container')
 const $aboutContainer = document.querySelector('.navigation-container__about-container')
 const $labContainer = document.querySelector('.navigation-container__lab-container')
 const $worksLayer = document.querySelector('.works-container__layer')
 const $aboutLayer = document.querySelector('.about-container__layer')
 const $labLayer = document.querySelector('.lab-container__layer')
+const $nameLayer = document.querySelector('.name-container__layer')
 const $worksLayerWorks = document.querySelector('.works-container__works')
+const $nameLayerName = document.querySelector('.name-container__name')
 const $aboutLayerAbout = document.querySelector('.about-container__about')
 const $labLayerLab = document.querySelector('.lab-container__lab')
 const $clickHoldButtonContainer = document.querySelector('.click-hold-button-container')
 const $buttonLayer = document.querySelector('.button-container__layer')
 const $clickHoldButton = document.querySelector('.click-hold-button-container__button')
+const $backgroundTextContainer = document.querySelector('.background__text-container')
+const $backgroundTextContainerText = document.querySelector('.background__text-container__text')
 
 
 
+
+
+
+
+
+
+const backgroundWidth = window.innerWidth /2
+console.log(backgroundWidth)
 
 let queue = new createjs.LoadQueue()
 console.log(queue)
@@ -69,6 +86,11 @@ const loadHome = () =>
 
     tlLoadHome
         .add('label1')
+
+        .to($homeBackgroundBackground, .5, {width: backgroundWidth, ease: Power1.easeIn}, 'label1')
+        .to($homeBackgroundBackgroundBack, .5, {width: backgroundWidth, ease: Power1.easeIn}, 'label1')
+        
+
         .to($buttonLayer,.7, {x:$buttonLayer.offsetWidth, ease: Power1.easeIn}, 'label1')
         .to($buttonLayer,.5,{x: $buttonLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'-=.2')
         .to($clickHoldButton, .3, {autoAlpha: 1}, '-=.5')
@@ -99,10 +121,99 @@ const loadHome = () =>
         .to($aboutLayer,.5,{x: $aboutLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'label2-=.8')
         .to($aboutLayerAbout, .3, {autoAlpha: 1}, 'label2-=1.2')
 
+        .to($nameLayer,.3, {x: $nameLayer.offsetWidth, ease: Power1.easeIn},'label1')
+        .to($nameLayer,.5,{x: $nameLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'label2-=.8')
+        .to($nameLayerName, .3, {autoAlpha: 1}, 'label2-=1.2')
+
+
         .to($labLayer,.3, {x: $labLayer.offsetWidth, ease: Power1.easeIn},'label1')
         .to($labLayer,.5,{x: $labLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'label2-=.8')
         .to($labLayerLab, .3, {autoAlpha: 1}, 'label2-=1.2');
 
 }
 
+$labContainer.addEventListener('mouseenter', () =>
+{
+    homeDescriptionOut()
+    $backgroundTextContainerText.innerHTML = "Lab"
+    $backgroundTextContainerText.style.fontSize = "100px"
+    
+})
+$labContainer.addEventListener('mouseleave', ()=>
+{
+    homeDescriptionIn()
+    
+})
+
+$workContainer.addEventListener('mouseenter', () =>
+{
+    homeDescriptionOut()
+    console.log('over')
+    $backgroundTextContainerText.innerHTML = "Works"
+    $backgroundTextContainerText.style.fontSize = "100px"
+    
+    
+})
+$workContainer.addEventListener('mouseleave', ()=>
+{
+    homeDescriptionIn()
+    console.log('leave')
+    
+})
+
+$aboutContainer.addEventListener('mouseenter', () =>
+{
+    homeDescriptionOut()
+    $backgroundTextContainerText.innerHTML = "About"
+    $backgroundTextContainerText.style.fontSize = "100px"
+    
+    
+})
+$aboutContainer.addEventListener('mouseleave', ()=>
+{
+    homeDescriptionIn()
+    
+})
+
+$clickHoldButtonContainer.addEventListener('mouseenter', () =>
+{
+    homeDescriptionOut()
+    $backgroundTextContainerText.innerHTML = "Projects"
+    $backgroundTextContainerText.style.fontSize = "80px"
+    
+})
+$clickHoldButtonContainer.addEventListener('mouseleave', ()=>
+{
+    homeDescriptionIn()
+    
+})
+
+const throttle = (fn, wait) =>
+{
+    let time = Date.now()
+    return function() {
+      if ((time + wait - Date.now()) < 0) {
+        fn()
+        time = Date.now()
+      }
+    }
+  }
+const homeDescriptionOut = () =>
+{
+    let tlHomeDescriptionOut = new TimelineLite()
+    tlHomeDescriptionOut
+        .add('label')
+        .to($descriptionName, .2, {y: 50 ,ease: Power0.easeOut}, 'label')
+        .to($descriptionRole, .2, {y: 30, ease: Power0.easeOut}, 'label')
+        .to([$descriptionStudy, $descriptionDescription], .3, {y: 20, ease: Power0.easeOut}, 'label')
+        .to($backgroundTextContainerText, .3, {y:-90, autoAlpha: 1, ease: Power0.easeIn});
+}
+const homeDescriptionIn = () =>
+{   
+    let tlHomeDescriptionIn = new TimelineLite()
+        .add('label3')
+        .to($backgroundTextContainerText, .3, {y:0, ease: Power0.easeOut})
+        .to([$descriptionName, $descriptionRole, $descriptionStudy, $descriptionDescription], .2, {y: 0, ease: Power0.easeIn}, '-=.2');
+
+}
 main()

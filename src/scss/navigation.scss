@@ -9,7 +9,7 @@
     font-family: 'Catamaran', serif;
 }
 
-
+.navigation-container__name-container,
 .navigation-container__works-container,
 .navigation-container__about-container,
 .navigation-container__lab-container
@@ -17,33 +17,36 @@
     position: absolute;
     overflow: hidden;
     height: 6%;
-    width: 4%;
+    width: 8%;
     vertical-align: center;
     &>div:nth-child(2)
     {
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
         text-align: center;
         color: $twine;
         font-size: 20px;
-        font-weight: 100;
-        margin-top: 25%;
-        margin-bottom: 25%;
+        font-weight: 300;
         opacity: 0;
         transition-timing-function: ease-in-out;        
         transition-duration: .5s;
-        &::before
+        
+    }
+    &::before
         {
             content: " ";
             position: absolute;
             width: 100%;
             height: 100%;
             background: $twine;
-            top:100%;
+            top:120%;
             left:0%;
             transition-timing-function: ease-in-out;
             transition-duration: .3s;
             z-index: -1;
         }
-    }
 }
 .navigation-container__works-container
 {
@@ -55,6 +58,17 @@
     bottom: 5%;
     right: 5%;
 }
+.navigation-container__name-container
+{
+    top: 5%;
+    left: 5%;
+    width:10%;
+    font-weight: 700;
+    &:hover
+    {
+        cursor: pointer;
+    }
+}
 .navigation-container__lab-container
 {
     bottom: 5%;
@@ -63,7 +77,8 @@
 
 .works-container__layer,
 .about-container__layer,
-.lab-container__layer
+.lab-container__layer,
+.name-container__layer
 {
     position: absolute;
     width: 100%;
@@ -79,10 +94,11 @@
     &:hover
     {
         cursor: pointer;
-        .works-container__works::before
+        &::before
         {
-            transform: translateY(-100%);
+            transform: translateY(-120%);
         }
+        
         .works-container__works
         {
             color : $firefly;
@@ -94,9 +110,9 @@
     &:hover
     {
         cursor: pointer;
-        .about-container__about::before
+        &::before
         {
-            transform: translateY(-100%);
+            transform: translateY(-120%);
         }
         .about-container__about
         {
@@ -109,9 +125,9 @@
     &:hover
     {
         cursor: pointer;
-        .lab-container__lab::before
+        &::before
         {
-            transform: translateY(-100%);
+            transform: translateY(-120%);
         }
         .lab-container__lab
         {
@@ -119,4 +135,5 @@
         }
         
     }
+    
 }
