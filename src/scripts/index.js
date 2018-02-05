@@ -43,12 +43,6 @@ const $backgroundTextContainerText = document.querySelector('.background__text-c
 
 
 
-
-
-
-
-
-
 const backgroundWidth = window.innerWidth /2
 console.log(backgroundWidth)
 
@@ -205,6 +199,7 @@ $workContainer.addEventListener('click', () =>
         .to($homeContainerDescription, .1, {autoAlpha:0},'fadeout')
         .to($homeBackgroundBackground, .5, {width: 0, ease: Power1.easeOut},'fadeout')
         .to($homeBackgroundBackgroundBack, .5, {width: 0, ease: Power1.easeOut}, 'fadeout+=.2')
+        
         
         
 })

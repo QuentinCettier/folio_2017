@@ -43,7 +43,7 @@ export function main()
             const roundedOffsetY = Math.round(offsetY * 100) /100
            
             $homeBackgroundBackground.style.transform = `translateX(${-roundedOffsetX}px) translateY(${roundedOffsetY}px) `
-            $homeBackgroundBackgroundBack.style.transform = `translateX(${roundedOffsetX}px) translateY(${-roundedOffsetY}px) translateZ(-40px) translate(-10%, -110%)`
+            $homeBackgroundBackgroundBack.style.transform = `translateX(${3*roundedOffsetX}px) translateY(${-2*roundedOffsetY}px) translateZ(-40px) translate(-10%, -110%)`
         }
         loop()
     }
