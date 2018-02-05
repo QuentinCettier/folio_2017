@@ -1,7 +1,9 @@
 import createjs from 'preload-js'
 import {TweenMax, Power2, TimelineLite} from 'gsap'
+import Barba from 'barba.js'
+import {transition} from './transition'
 import '../scss/styles.scss'
-import {Pentagon, draw} from './Pentagon'
+//import {Pentagon, draw} from './Pentagon'
 import {main} from './home'
 
 const $canvas = document.querySelector('.canvas')
@@ -9,7 +11,6 @@ const $loaderText = document.querySelector('.loader-container__loader')
 const $layer1 = document.querySelector('.layer-1')
 const $layer2 = document.querySelector('.layer-2')
 const width = window.innerWidth
-
 const $homeContainer = document.querySelector('.home-container')
 const $homeContainerDescription = document.querySelector('.home-container__description')
 const $homeBackground = document.querySelector('.home-background')
@@ -125,7 +126,10 @@ const loadHome = () =>
         .to($labLayerLab, .3, {autoAlpha: 1}, 'label2-=1.2');
 
 }
-
+// document.addEventListener('DOMContentLoaded', () =>
+// {
+//     loadHome()
+// })
 $labContainer.addEventListener('mouseenter', () =>
 {
     homeDescriptionOut()
@@ -199,8 +203,5 @@ $workContainer.addEventListener('click', () =>
         .to($homeContainerDescription, .1, {autoAlpha:0},'fadeout')
         .to($homeBackgroundBackground, .5, {width: 0, ease: Power1.easeOut},'fadeout')
         .to($homeBackgroundBackgroundBack, .5, {width: 0, ease: Power1.easeOut}, 'fadeout+=.2')
-        
-        
-        
 })
 main()

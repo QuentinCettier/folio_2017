@@ -3,10 +3,18 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: './src/scripts/index.js',
-    output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'build')
+    // entry: './src/scripts/index.js',
+    // output: {
+    //     filename: 'bundle.js',
+    //     path: path.resolve(__dirname, 'build')
+    // },
+    entry: {
+        'bundle': './src/scripts/index.js', // will be  ./build/application/bundle.js,
+        'bundleAbout': './src/scripts/indexAbout.js'// will be  ./build/library/bundle.js
+    },
+      output: {
+        path: path.resolve(__dirname, './build'),
+        filename: '[name].js'
     },
     devtool: 'cheap-module-source-map',
     module: {

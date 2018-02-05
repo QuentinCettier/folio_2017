@@ -21,12 +21,13 @@
     "clean": "rimraf build/*",
     "prod": "cross-env NODE_ENV=production webpack",
     "build": "npm run clean && npm run prod",
-    "start": "cross-env NODE_ENV=development webpack-dev-server"
+    "start": "webpack-dev-server"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
     "babel-preset-env": "^1.1.8",
+    "barba.js": "^1.0.0",
     "cross-env": "^3.1.4",
     "css-loader": "^0.26.1",
     "eslint": "^3.16.0",
