@@ -1,12 +1,17 @@
 import Barba from 'barba.js'
+import {navigationIn} from './index'
 
 export default function transition()
 {
     const $loaderContainer = document.querySelector('.loader-container')
     const $layer1 = document.querySelector('.layer-1')
-    document.addEventListener("DOMContentLoaded", function () {
-        console.log($loaderContainer)
+    const $backgroundTextContainerText = document.querySelector('.background__text-container__text')
+    const $homeContainerDescription = document.querySelector('.home-container__description')
+    const $homeBackgroundBackground = document.querySelector('.home-background__background')
+    const $homeBackgroundBackgroundBack = document.querySelector('.home-background__background-back')
+    const $aboutContainer = document.querySelector('.about-container')
 
+    document.addEventListener("DOMContentLoaded", function () {
         Barba.Pjax.init()
         Barba.Prefetch.init()
 
@@ -19,14 +24,18 @@ export default function transition()
             },
             transitionIn : function()
             {
+                
                 let deferred = Barba.Utils.deferred();
-                console.log('tween')
-                TweenLite.to($layer1, .5, {
-                    xPercent: -150,
-                    onComplete: function() {
-                        deferred.resolve()
-                  }
-                })
+                
+                
+                let tlHomeFadeOut = new TimelineMax()
+                tlHomeFadeOut
+                    .to($backgroundTextContainerText, .3, {y:0, autoAlpha: 0, ease: Power0.easeIn}) 
+                    .add('fadeout')
+                    .to($homeContainerDescription, .1, {autoAlpha:0},'fadeout')
+                    .to($homeBackgroundBackground, .5, {width: 0, ease: Power1.easeOut},'fadeout')
+                    .to($homeBackgroundBackgroundBack, .5, {width: 0, ease: Power1.easeOut}, 'fadeout+=.2')
+                    .to($layer1, .5, {xPercent: -150,onComplete: function() {deferred.resolve()}});
                 return deferred.promise;
             },
             showNewPage: function() 
@@ -34,15 +43,13 @@ export default function transition()
                 TweenLite.to($layer1, 1, {
                    xPercent: -300,
                 })
-
-                console.log(this.newContainer)
-                console.log(this.oldContainer)
+                TweenLite.to($aboutContainer, .1, {autoAlpha:1})
+                navigationIn()
                 this.done()
             }
         })
         Barba.Pjax.getTransition = function() {
             let transitionObj = transition
-            console.log('transition')
             return transitionObj;
           };
 

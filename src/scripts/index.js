@@ -54,9 +54,8 @@ const onComplete = (event) =>
     let tlOut = new TimelineMax({onComplete:loadHome})
         tlOut
             .to($loaderText, .3, {autoAlpha:0}, '+=.5')
-            .to($layer1, .9, {x : width, ease: Power0.easeIn}, '+=.2')
-            .to($layer2, .9, {x : width, ease: Power0.easeIn},'-=.7')
-            .to($homeContainer, .5, {autoAlpha: 1})
+            .to($layer1, 1.5, {x : width, ease: Power1.easeInOut}, '+=.2')
+            .to($layer2, 1.5, {x : width, ease: Power1.easeInOut},'-=1.2')
 }
 
 const onProgress = (event) =>
@@ -71,7 +70,9 @@ queue.on('complete', onComplete)
 queue.on('progress', onProgress)
 queue.loadManifest(
     [
-        'dist/bundle.js'
+        'dist/bundle.js',
+        'dist/bundleAbout.js',
+        'bundle.css'
     ]
 )
 
@@ -82,47 +83,47 @@ const loadHome = () =>
     tlLoadHome
         .add('label1')
 
-        .to($homeBackgroundBackground, .5, {width: backgroundWidth, ease: Power1.easeIn}, 'label1')
-        .to($homeBackgroundBackgroundBack, .5, {width: backgroundWidth, ease: Power1.easeIn}, 'label1')
+        .to($homeBackgroundBackground, .5, {width: backgroundWidth, ease: Power1.easeInOut}, 'label1')
+        .to($homeBackgroundBackgroundBack, .5, {width: backgroundWidth, ease: Power1.easeInOut}, 'label1')
         
 
         // .to($buttonLayer,.7, {x:$buttonLayer.offsetWidth, ease: Power1.easeIn}, 'label1')
         // .to($buttonLayer,.5,{x: $buttonLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'-=.2')
         // .to($clickHoldButton, .3, {autoAlpha: 1}, '-=.5')
 
-        .to($descriptionNameLayer,.7, {x: $descriptionNameLayer.offsetWidth, ease: Power1.easeIn},'label1')
-        .to($descriptionNameLayer,.5,{x: $descriptionNameLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'-=.2')
+        .to($descriptionNameLayer,.7, {x: $descriptionNameLayer.offsetWidth, ease: Power1.easeInOut},'label1')
+        .to($descriptionNameLayer,.5,{x: $descriptionNameLayer.offsetWidth * 2 + 10, ease: Power1.easeInOut},'-=.2')
         .to($descriptionName, .3, {autoAlpha: 1}, '-=.5')
 
-        .to($descriptionRoleLayer,.7, {x: $descriptionRoleLayer.offsetWidth, ease: Power1.easeIn},'label1')
-        .to($descriptionRoleLayer,.3,{x: $descriptionRoleLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'-=.2')
+        .to($descriptionRoleLayer,.7, {x: $descriptionRoleLayer.offsetWidth, ease: Power1.easeInOut},'label1')
+        .to($descriptionRoleLayer,.3,{x: $descriptionRoleLayer.offsetWidth * 2 + 10, ease: Power1.easeInOut},'-=.2')
         .to($descriptionRole, .3, {autoAlpha: 1}, '-=.5')
 
-        .to($descriptionStudyLayer,.7, {x: $descriptionStudyLayer.offsetWidth, ease: Power1.easeIn},'label1')
-        .to($descriptionStudyLayer,.3,{x: $descriptionStudyLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'-=.2')
+        .to($descriptionStudyLayer,.7, {x: $descriptionStudyLayer.offsetWidth, ease: Power1.easeInOut},'label1')
+        .to($descriptionStudyLayer,.3,{x: $descriptionStudyLayer.offsetWidth * 2 + 10, ease: Power1.easeInOut},'-=.2')
         .to($descriptionStudy, .3, {autoAlpha: 1}, '-=.5')
 
-        .to($descriptionDescriptionLayer,.7, {x: $descriptionDescriptionLayer.offsetWidth, ease: Power1.easeIn},'label1')
-        .to($descriptionDescriptionLayer,.3,{x: $descriptionDescriptionLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'-=.2')
+        .to($descriptionDescriptionLayer,.7, {x: $descriptionDescriptionLayer.offsetWidth, ease: Power1.easeInOut},'label1')
+        .to($descriptionDescriptionLayer,.3,{x: $descriptionDescriptionLayer.offsetWidth * 2 + 10, ease: Power1.easeInOut},'-=.2')
         .to($descriptionDescription, .3, {autoAlpha: 1}, '-=.5')
 
         
-        .to($worksLayer,.3, {x: $worksLayer.offsetWidth, ease: Power1.easeIn},'label1')
+        .to($worksLayer,.3, {x: $worksLayer.offsetWidth, ease: Power1.easeInOut},'label1')
         .add('label2')
-        .to($worksLayer,.5,{x: $worksLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'label2-=.8')
+        .to($worksLayer,.5,{x: $worksLayer.offsetWidth * 2 + 10, ease: Power1.easeInOut},'label2-=.8')
         .to($worksLayerWorks, .3, {autoAlpha: 1},'label2-=1.2')
 
-        .to($aboutLayer,.3, {x: $aboutLayer.offsetWidth, ease: Power1.easeIn},'label1')
-        .to($aboutLayer,.5,{x: $aboutLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'label2-=.8')
+        .to($aboutLayer,.3, {x: $aboutLayer.offsetWidth, ease: Power1.easeInOut},'label1')
+        .to($aboutLayer,.5,{x: $aboutLayer.offsetWidth * 2 + 10, ease: Power1.easeInOut},'label2-=.8')
         .to($aboutLayerAbout, .3, {autoAlpha: 1}, 'label2-=1.2')
 
-        .to($nameLayer,.3, {x: $nameLayer.offsetWidth, ease: Power1.easeIn},'label1')
-        .to($nameLayer,.5,{x: $nameLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'label2-=.8')
+        .to($nameLayer,.3, {x: $nameLayer.offsetWidth, ease: Power1.easeInOut},'label1')
+        .to($nameLayer,.5,{x: $nameLayer.offsetWidth * 2 + 10, ease: Power1.easeInOut},'label2-=.8')
         .to($nameLayerName, .3, {autoAlpha: 1}, 'label2-=1.2')
 
 
-        .to($labLayer,.3, {x: $labLayer.offsetWidth, ease: Power1.easeIn},'label1')
-        .to($labLayer,.5,{x: $labLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'label2-=.8')
+        .to($labLayer,.3, {x: $labLayer.offsetWidth, ease: Power1.easeInOut},'label1')
+        .to($labLayer,.5,{x: $labLayer.offsetWidth * 2 + 10, ease: Power1.easeInOut},'label2-=.8')
         .to($labLayerLab, .3, {autoAlpha: 1}, 'label2-=1.2');
 
 }
@@ -178,17 +179,18 @@ const homeDescriptionOut = () =>
     let tlHomeDescriptionOut = new TimelineLite()
     tlHomeDescriptionOut
         .add('label')
-        .to($descriptionName, .2, {y: 50 ,ease: Power0.easeOut}, 'label')
-        .to($descriptionRole, .2, {y: 30, ease: Power0.easeOut}, 'label')
-        .to([$descriptionStudy, $descriptionDescription], .3, {y: 20, ease: Power0.easeOut}, 'label')
-        .to($backgroundTextContainerText, .2, {y:-90, autoAlpha: 1, ease: Power0.easeIn});
+        .to($descriptionName, .2, {y: 50 ,ease: Power1.easeInOut}, 'label')
+        .to($descriptionRole, .2, {y: 30, ease: Power1.easeInOut}, 'label')
+        .to([$descriptionStudy, $descriptionDescription], .15, {autoAlpha:0, ease: Power1.easeInOut}, 'label')
+        .to($backgroundTextContainerText, .5, {y:-90, autoAlpha: 1, ease: Power1.easeInOut});
 }
 const homeDescriptionIn = () =>
 {   
     let tlHomeDescriptionIn = new TimelineLite()
         .add('label3')
-        .to($backgroundTextContainerText, .2, {y:0, ease: Power0.easeOut})
-        .to([$descriptionName, $descriptionRole, $descriptionStudy, $descriptionDescription], .2, {y: 0, ease: Power0.easeIn}, '-=.2');
+        .to($backgroundTextContainerText, .5, {y:0, ease: Power1.easeInOut})
+        .to([$descriptionName, $descriptionRole], .2, {y: 0, ease: Power1.easeInOut}, '-=.2')
+        .to([$descriptionStudy, $descriptionDescription], .15, {autoAlpha:1, ease: Power1.easeInOut}, '-=.2');
 
 }
 
@@ -204,4 +206,27 @@ $workContainer.addEventListener('click', () =>
         .to($homeBackgroundBackground, .5, {width: 0, ease: Power1.easeOut},'fadeout')
         .to($homeBackgroundBackgroundBack, .5, {width: 0, ease: Power1.easeOut}, 'fadeout+=.2')
 })
+
+export function navigationIn() 
+{
+    let tlNavigationIn = new TimelineLite()
+    tlNavigationIn
+
+        .to($aboutContainer, .1, {autoAlpha:1})
+        .add('label1')     
+        .to($worksLayer,.3, {x: $worksLayer.offsetWidth, ease: Power1.easeIn},'label1')
+        .add('label2')
+        .to($worksLayer,.5,{x: $worksLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'label2-=.8')
+        .to($worksLayerWorks, .3, {autoAlpha: 1},'label2-=1.2')
+        .to($aboutLayer,.3, {x: $aboutLayer.offsetWidth, ease: Power1.easeIn},'label1')
+        .to($aboutLayer,.5,{x: $aboutLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'label2-=.8')
+        .to($aboutLayerAbout, .3, {autoAlpha: 1}, 'label2-=1.2')
+        .to($nameLayer,.3, {x: $nameLayer.offsetWidth, ease: Power1.easeIn},'label1')
+        .to($nameLayer,.5,{x: $nameLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'label2-=.8')
+        .to($nameLayerName, .3, {autoAlpha: 1}, 'label2-=1.2')
+        .to($labLayer,.3, {x: $labLayer.offsetWidth, ease: Power1.easeIn},'label1')
+        .to($labLayer,.5,{x: $labLayer.offsetWidth * 2 + 10, ease: Power1.easeOut},'label2-=.8')
+        .to($labLayerLab, .3, {autoAlpha: 1}, 'label2-=1.2');
+        console.log('slt')
+}
 main()

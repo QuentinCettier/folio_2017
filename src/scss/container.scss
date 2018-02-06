@@ -2,7 +2,8 @@ html
 {
     user-select: none;    
 }
-.home-container
+.home-container,
+.about-container
 {
     position: absolute;
     width: 100%;
@@ -10,7 +11,7 @@ html
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0;
+    opacity: 1;
 }
 .home-container__description
 {
@@ -46,6 +47,8 @@ html
         right: -195px;
         background: $twine; //janna
         transition-duration: .3s;
+        transition-timing-function: ease-in-out;
+
     }
     
     &:hover .span__name
@@ -87,6 +90,8 @@ html
         right: -145px;
         background: $twine; //janna
         transition-duration: .3s;
+        transition-timing-function: ease-in-out;
+
     }
     &:hover::before
     {
@@ -140,6 +145,8 @@ html
         right: -43px;
         background: $twine; //janna
         transition-duration: .3s;
+        transition-timing-function: ease-in-out;
+
     }
     &:hover::before
     {

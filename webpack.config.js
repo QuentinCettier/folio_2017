@@ -9,8 +9,8 @@ module.exports = {
     //     path: path.resolve(__dirname, 'build')
     // },
     entry: {
-        'bundle': './src/scripts/index.js', // will be  ./build/application/bundle.js,
-        'bundleAbout': './src/scripts/indexAbout.js'// will be  ./build/library/bundle.js
+        'bundle': './src/scripts/index.js', 
+        'bundleAbout': './src/scripts/indexAbout.js'
     },
       output: {
         path: path.resolve(__dirname, './build'),

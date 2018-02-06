@@ -99,7 +99,7 @@
             transform: translateY(-120%);
         }
         
-        .works-container__works
+        .works-container__works>a
         {
             color : $firefly;
         }
@@ -114,7 +114,7 @@
         {
             transform: translateY(-120%);
         }
-        .about-container__about
+        .about-container__about>a
         {
             color : $firefly;
         }
@@ -129,7 +129,7 @@
         {
             transform: translateY(-120%);
         }
-        .lab-container__lab
+        .lab-container__lab>a
         {
             color : $firefly;
         }
@@ -137,7 +137,8 @@
     }
     
 }
-a:visited
+a
 {
     color: $twine;
+    transition-duration: .3s;
 }
